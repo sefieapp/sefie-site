@@ -1,110 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sefie – Find Your Best Photo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sefie – Find Your Best Photo</title>
 
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      margin: 0;
-      text-align: center;
-      color: #111;
-      background: #fff;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+  background: #FFF6FA;
+  color: #111;
+}
 
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 24px;
-    }
+/* 上部SNSバー */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: #FFF6FA;
+  padding: 10px;
+  text-align: right;
+  z-index: 1000;
+}
 
-    h1 {
-      font-size: 28px;
-      margin-top: 20px;
-    }
+.topbar a {
+  margin-left: 10px;
+  font-size: 18px;
+  text-decoration: none;
+}
 
-    p {
-      font-size: 16px;
-      color: #555;
-    }
+/* メイン */
+.container {
+  max-width: 640px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
 
-    .hero-img {
-      width: 100%;
-      border-radius: 16px;
-      margin: 20px 0;
-    }
+h1 {
+  font-size: 24px;
+  margin-top: 10px;
+}
 
-    .cta {
-      display: block;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      padding: 16px;
-      border-radius: 12px;
-      margin: 12px 0;
-      font-weight: bold;
-      font-size: 16px;
-    }
+p {
+  color: #666;
+}
 
-    .cta.secondary {
-      background: #eee;
-      color: #111;
-    }
+/* 画像 */
+.img {
+  width: 100%;
+  border-radius: 16px;
+  margin: 20px 0;
+}
 
-    .section {
-      margin-top: 40px;
-    }
+/* CTAボタン */
+.cta {
+  display: block;
+  background: #000;
+  color: #fff;
+  padding: 16px;
+  border-radius: 999px;
+  margin: 16px 0;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
 
-    .footer {
-      margin-top: 60px;
-      font-size: 14px;
-      color: #888;
-    }
+/* セクション */
+.section {
+  margin-top: 40px;
+}
 
-    .footer a {
-      color: #888;
-      margin: 0 8px;
-      text-decoration: none;
-    }
-  </style>
+/* フッター */
+.footer {
+  margin-top: 60px;
+  font-size: 14px;
+  color: #888;
+}
+.footer a {
+  margin: 0 8px;
+  color: #888;
+  text-decoration: none;
+}
+</style>
 </head>
 
 <body>
 
+<!-- SNSバー -->
+<div class="topbar">
+  <a href="https://www.tiktok.com/@sefie.app/" target="_blank">🎵</a>
+  <a href="https://www.instagram.com/sefie.app/" target="_blank">📷</a>
+  <a href="https://www.youtube.com/@sefieapp" target="_blank">▶️</a>
+  <a href="https://x.com/sefieapp" target="_blank">𝕏</a>
+</div>
+
 <div class="container">
 
-  <!-- タイトル -->
-  <h1>Choose Your “Today’s Best” Photo</h1>
-  <p>No more guessing. Let AI decide.</p>
+  <!-- ファーストビュー -->
+  <h1>Choose Your “Today’s Best”</h1>
+  <p>Let AI pick your best photo instantly</p>
 
-  <!-- 画像（あとで差し替え） -->
-  <img src="https://via.placeholder.com/600x400" class="hero-img">
+  <img src="main.jpg" class="img">
 
-  <!-- CTA -->
   <a href="https://apps.apple.com" class="cta">Download on App Store</a>
-  <a href="https://play.google.com" class="cta secondary">Get it on Google Play</a>
+  <a href="https://play.google.com" class="cta">Get it on Google Play</a>
 
-  <!-- 機能 -->
+  <!-- スコア -->
   <div class="section">
-    <h2>AI Photo Scoring</h2>
-    <p>Face impression, style balance, and photo vibe — all in one score.</p>
+    <img src="score.jpg" class="img">
+    <p>Face. Style. Vibe. All scored instantly.</p>
   </div>
 
+  <!-- ランキング -->
   <div class="section">
-    <h2>Find Your Best Shot Instantly</h2>
-    <p>Upload multiple photos and let AI pick your best one.</p>
+    <img src="rank.jpg" class="img">
+    <p>Find your best shot with AI ranking</p>
   </div>
 
+  <!-- 女性ビジュアル -->
   <div class="section">
-    <h2>Share Your Results</h2>
-    <p>Create beautiful score cards and share them on social media.</p>
+    <img src="visual.jpg" class="img">
+    <p>Feel confident in every photo</p>
   </div>
+
+  <!-- 再CTA -->
+  <a href="https://apps.apple.com" class="cta">Download Now</a>
 
   <!-- フッター -->
   <div class="footer">
-    <a href="/privacy.html">Privacy Policy</a> |
+    <a href="/privacy.html">Privacy</a> |
     <a href="/terms.html">Terms</a> |
     <a href="/support.html">Support</a>
   </div>
