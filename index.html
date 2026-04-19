@@ -13,21 +13,36 @@ body {
   text-align: center;
 }
 
-/* SNSバー */
-.topbar {
+/* ヘッダー */
+.header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px 16px;
+  padding: 10px 14px;
   display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  background: rgba(255,255,255,0.35);
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.45);
   backdrop-filter: blur(6px);
   box-sizing: border-box;
+  z-index: 1000;
 }
 
-.topbar img {
+/* アプリ名 */
+.logo {
+  font-weight: 700;
+  font-size: 16px;
+  color: #ff6fae;
+  letter-spacing: 1px;
+}
+
+/* SNS */
+.sns {
+  display: flex;
+  gap: 12px;
+}
+
+.sns img {
   width: 22px;
   height: 22px;
 }
@@ -36,13 +51,14 @@ body {
 .container {
   max-width: 640px;
   margin: auto;
-  padding: 70px 16px 30px;
+  padding: 80px 16px 30px;
 }
 
 /* タイトル */
 h1 {
   font-size: 32px;
   margin: 0;
+  line-height: 1.2;
 }
 
 .sub {
@@ -75,15 +91,16 @@ h1 {
   margin: 15px 0;
 }
 
-/* セクション */
-.section {
-  margin-top: 30px;
-}
-
+/* テキスト */
 .text {
   color: #666;
   margin: 10px auto;
   max-width: 380px;
+}
+
+/* セクション */
+.section {
+  margin-top: 30px;
 }
 
 /* フッター */
@@ -95,12 +112,18 @@ h1 {
 
 <body>
 
-<!-- SNS -->
-<div class="topbar">
-  <a href="https://www.tiktok.com/@sefie.app/"><img src="tiktok.png"></a>
-  <a href="https://www.instagram.com/sefie.app/"><img src="instagram.png"></a>
-  <a href="https://www.youtube.com/@sefieapp"><img src="youtube.png"></a>
-  <a href="https://x.com/sefieapp"><img src="x.png"></a>
+<!-- ヘッダー -->
+<div class="header">
+
+  <div class="logo">SEFIE</div>
+
+  <div class="sns">
+    <a href="https://www.tiktok.com/@sefie.app/"><img src="tiktok.png"></a>
+    <a href="https://www.instagram.com/sefie.app/"><img src="instagram.png"></a>
+    <a href="https://www.youtube.com/@sefieapp"><img src="youtube.png"></a>
+    <a href="https://x.com/sefieapp"><img src="x.png"></a>
+  </div>
+
 </div>
 
 <div class="container">
@@ -115,14 +138,14 @@ h1 {
   <a href="https://play.google.com"><img src="googleplay.png"></a>
 </div>
 
-<!-- ① メイン -->
+<!-- メイン -->
 <img src="main.jpg" class="img">
 
 <p class="text">
-Face, style, vibe, and overall score — analyzed by AI with personalized insights.
+Face, style, vibe, and overall score — with AI-powered comments tailored to you.
 </p>
 
-<!-- ② スコア -->
+<!-- スコア -->
 <div class="section">
   <img src="score.jpg" class="img">
 </div>
@@ -131,23 +154,22 @@ Face, style, vibe, and overall score — analyzed by AI with personalized insigh
 See which photo truly stands out — instantly and effortlessly.
 </p>
 
-<!-- ③ ランキング -->
+<!-- ランキング -->
 <div class="section">
   <img src="rank.jpg" class="img">
 </div>
 
-<!-- ★ここ追加（重要） -->
 <p class="text">
 Turn your photos into beautiful, shareable score cards — designed to stand out.
 </p>
 
-<!-- ④ ビジュアル -->
+<!-- ビジュアル -->
 <div class="section">
   <img src="visual.jpg" class="img">
   <p class="text">Feel confident in every photo.</p>
 </div>
 
-<!-- CTA -->
+<!-- 下CTA -->
 <div class="footer">
 
   <div class="cta-label">Try it for free</div>
