@@ -5,15 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sefie – Find Your Best Photo</title>
 
-<!-- Google Analytics（あとでID入れる） -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JREW0NS7B5"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-JREW0NS7B5');
-</script>
-
 <style>
 body {
   margin: 0;
@@ -27,12 +18,13 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px;
+  padding: 10px 16px;
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  background: rgba(255,255,255,0.3);
+  gap: 12px;
+  background: rgba(255,255,255,0.35);
   backdrop-filter: blur(6px);
+  box-sizing: border-box;
 }
 
 .topbar img {
@@ -49,7 +41,7 @@ body {
 
 /* タイトル */
 h1 {
-  font-size: 30px; /* +2px */
+  font-size: 32px; /* 修正：しっかり大きく */
   margin: 0;
 }
 
@@ -88,9 +80,15 @@ h1 {
   margin-top: 30px;
 }
 
+.text {
+  color: #666;
+  margin: 10px auto;
+  max-width: 380px;
+}
+
+/* フッター */
 .footer {
-  margin-top: 40px;
-  font-size: 13px;
+  margin-top: 50px;
 }
 </style>
 </head>
@@ -117,27 +115,51 @@ h1 {
   <a href="https://play.google.com"><img src="googleplay.png"></a>
 </div>
 
+<!-- ①メイン画像 -->
 <img src="main.jpg" class="img">
 
+<!-- ★追加：1枚目と2枚目の間 -->
+<p class="text">
+Face, style, vibe, and overall score — analyzed by AI with personalized insights.
+</p>
+
+<!-- ②スコア -->
 <div class="section">
   <img src="score.jpg" class="img">
-  <p>Face. Style. Vibe. All scored instantly.</p>
 </div>
 
+<!-- ★修正：2枚目と3枚目の間 -->
+<p class="text">
+See which photo truly stands out — instantly and effortlessly.
+</p>
+
+<!-- ③ランキング -->
 <div class="section">
   <img src="rank.jpg" class="img">
-  <p>Find your best shot with AI</p>
 </div>
 
+<!-- ④雰囲気 -->
 <div class="section">
   <img src="visual.jpg" class="img">
-  <p>Feel confident in every photo</p>
+  <p class="text">Feel confident in every photo.</p>
 </div>
 
+<!-- ★復活：下CTA -->
 <div class="footer">
-  <a href="/privacy.html">Privacy</a> |
-  <a href="/terms.html">Terms</a> |
-  <a href="/support.html">Support</a>
+
+  <div class="cta-label">Try it for free</div>
+
+  <div class="store-buttons">
+    <a href="https://apps.apple.com"><img src="appstore.png"></a>
+    <a href="https://play.google.com"><img src="googleplay.png"></a>
+  </div>
+
+  <div>
+    <a href="/privacy.html">Privacy</a> |
+    <a href="/terms.html">Terms</a> |
+    <a href="/support.html">Support</a>
+  </div>
+
 </div>
 
 </div>
