@@ -13,18 +13,20 @@ body {
   color: #111;
 }
 
-/* 上部SNSバー */
+/* 透過SNSバー */
 .topbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  background: #FFF6FA;
-  padding: 10px;
-  text-align: right;
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: flex-end;
   z-index: 1000;
+  background: transparent;
 }
 
 .topbar a {
-  margin-left: 10px;
+  margin-left: 12px;
   font-size: 18px;
   text-decoration: none;
 }
@@ -33,37 +35,46 @@ body {
 .container {
   max-width: 640px;
   margin: auto;
-  padding: 20px;
+  padding: 80px 20px 40px;
   text-align: center;
 }
 
+/* タイトル */
 h1 {
-  font-size: 24px;
-  margin-top: 10px;
+  font-size: 26px;
+  margin-bottom: 6px;
 }
 
+.appname {
+  font-weight: bold;
+  font-size: 14px;
+  color: #FF6FAE;
+  letter-spacing: 1px;
+}
+
+/* テキスト */
 p {
   color: #666;
+  margin-bottom: 10px;
 }
 
 /* 画像 */
 .img {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 18px;
   margin: 20px 0;
 }
 
-/* CTAボタン */
-.cta {
-  display: block;
-  background: #000;
-  color: #fff;
-  padding: 16px;
-  border-radius: 999px;
-  margin: 16px 0;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+/* ストアボタン（横並び） */
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.store-buttons a img {
+  height: 52px;
 }
 
 /* セクション */
@@ -74,11 +85,17 @@ p {
 /* フッター */
 .footer {
   margin-top: 60px;
-  font-size: 14px;
-  color: #888;
+  padding-bottom: 40px;
+  text-align: center;
 }
+
+.footer .store-buttons {
+  margin-bottom: 12px;
+}
+
 .footer a {
-  margin: 0 8px;
+  margin: 0 6px;
+  font-size: 13px;
   color: #888;
   text-decoration: none;
 }
@@ -87,7 +104,7 @@ p {
 
 <body>
 
-<!-- SNSバー -->
+<!-- SNS固定（透過） -->
 <div class="topbar">
   <a href="https://www.tiktok.com/@sefie.app/" target="_blank">🎵</a>
   <a href="https://www.instagram.com/sefie.app/" target="_blank">📷</a>
@@ -97,14 +114,23 @@ p {
 
 <div class="container">
 
-  <!-- ファーストビュー -->
+  <!-- アプリ名 -->
+  <div class="appname">SEFIE</div>
   <h1>Choose Your “Today’s Best”</h1>
   <p>Let AI pick your best photo instantly</p>
 
+  <!-- メイン画像 -->
   <img src="main.jpg" class="img">
 
-  <a href="https://apps.apple.com" class="cta">Download on App Store</a>
-  <a href="https://play.google.com" class="cta">Get it on Google Play</a>
+  <!-- ストアボタン -->
+  <div class="store-buttons">
+    <a href="https://apps.apple.com">
+      <img src="appstore.png">
+    </a>
+    <a href="https://play.google.com">
+      <img src="googleplay.png">
+    </a>
+  </div>
 
   <!-- スコア -->
   <div class="section">
@@ -118,17 +144,27 @@ p {
     <p>Find your best shot with AI ranking</p>
   </div>
 
-  <!-- 女性ビジュアル -->
+  <!-- 雰囲気 -->
   <div class="section">
     <img src="visual.jpg" class="img">
     <p>Feel confident in every photo</p>
   </div>
 
-  <!-- 再CTA -->
-  <a href="https://apps.apple.com" class="cta">Download Now</a>
+</div>
 
-  <!-- フッター -->
-  <div class="footer">
+<!-- フッター -->
+<div class="footer">
+
+  <div class="store-buttons">
+    <a href="https://apps.apple.com">
+      <img src="appstore.png">
+    </a>
+    <a href="https://play.google.com">
+      <img src="googleplay.png">
+    </a>
+  </div>
+
+  <div>
     <a href="/privacy.html">Privacy</a> |
     <a href="/terms.html">Terms</a> |
     <a href="/support.html">Support</a>
