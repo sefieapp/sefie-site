@@ -2,956 +2,1064 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="p:domain_verify" content="9765d946033c3beb08fa5d1d0f603ccc">
-
-<title>Sefie Creator Kit | Free Custom Beauty Reel</title>
-
-<meta
-  name="description"
-  content="Choose two of your existing photos. Sefie creates a custom, ready-to-post beauty or selfie Reel with the analysis, hook, cover, and caption prepared for you."
->
-
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="/icon.png">
-<link rel="icon" type="image/png" href="/favicon.png">
-
-<style>
-:root {
-  --accent: #ff6f61;
-  --accent-dark: #e95a50;
-  --background: #fff7fb;
-  --surface: #ffffff;
-  --surface-soft: #fff3f7;
-  --border: #ffe0e8;
-  --text: #222222;
-  --muted: #666666;
-  --muted-light: #888888;
-  --success-bg: #f2fbf6;
-  --success-border: #cfeedd;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
-  background: var(--background);
-  color: var(--text);
-}
-
-a {
-  color: inherit;
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 58px;
-  padding: 10px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 224, 232, 0.8);
-  z-index: 1000;
-}
-
-.logo {
-  font-weight: 800;
-  font-size: 18px;
-  color: var(--accent);
-  text-decoration: none;
-  letter-spacing: 0.03em;
-}
-
-.header-link {
-  color: #555;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.container {
-  width: min(100%, 900px);
-  margin: 0 auto;
-  padding: 88px 18px 48px;
-}
-
-.hero {
-  text-align: center;
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(255, 111, 97, 0.12),
-      transparent 40%
-    ),
-    var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 38px 22px 32px;
-  box-shadow: 0 12px 34px rgba(255, 111, 97, 0.11);
-}
-
-.kicker {
-  color: var(--accent);
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-h1 {
-  max-width: 760px;
-  margin: 12px auto;
-  font-size: clamp(36px, 8vw, 58px);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-}
-
-.hero-highlight {
-  color: var(--accent);
-}
-
-.sub {
-  max-width: 680px;
-  margin: 16px auto 0;
-  color: #555;
-  font-size: 18px;
-  line-height: 1.65;
-}
-
-.hero-line {
-  margin: 18px auto 0;
-  font-size: 17px;
-  font-weight: 750;
-}
-
-.cta {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 15px 25px;
-  background: var(--accent);
-  color: #ffffff;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.22);
-  transition:
-    transform 0.15s ease,
-    background 0.15s ease;
-}
-
-.cta:hover {
-  transform: translateY(-1px);
-  background: var(--accent-dark);
-}
-
-.cta-secondary {
-  background: #ffffff;
-  color: var(--accent-dark);
-  border: 1px solid var(--border);
-  box-shadow: none;
-  margin-left: 8px;
-}
-
-.note {
-  max-width: 620px;
-  margin: 12px auto 0;
-  color: var(--muted-light);
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.trust-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 22px;
-}
-
-.trust-item {
-  padding: 8px 12px;
-  background: var(--surface-soft);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: #555;
-  font-size: 13px;
-  font-weight: 650;
-}
-
-.section {
-  margin-top: 22px;
-  padding: 30px 24px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-}
-
-.section h2 {
-  margin: 0 0 12px;
-  text-align: center;
-  font-size: clamp(25px, 5vw, 34px);
-  letter-spacing: -0.02em;
-}
-
-.section-intro {
-  max-width: 690px;
-  margin: 0 auto 22px;
-  text-align: center;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-.card {
-  padding: 19px;
-  background: var(--surface-soft);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-}
-
-.card strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 17px;
-}
-
-.card p {
-  margin: 0;
-  color: #5f5f5f;
-  line-height: 1.65;
-}
-
-.card-label {
-  display: inline-block;
-  margin-bottom: 10px;
-  padding: 5px 9px;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--accent-dark);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.deliverables {
-  margin: 0;
-  padding-left: 22px;
-  color: #555;
-  line-height: 1.9;
-}
-
-.concept-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
-
-.concept-card {
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-}
-
-.example-visual {
-  min-height: 220px;
-  padding: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 111, 97, 0.15),
-      rgba(255, 227, 238, 0.8)
-    );
-  text-align: center;
-}
-
-.example-inner {
-  width: 100%;
-}
-
-.example-ab {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-.example-photo {
-  min-height: 125px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.96);
-  border-radius: 15px;
-  color: #777;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.example-title {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.35;
-}
-
-.example-note {
-  margin: 7px 0 0;
-  color: #666;
-  font-size: 13px;
-}
-
-.concept-copy {
-  padding: 20px;
-}
-
-.concept-copy h3 {
-  margin: 0 0 9px;
-  font-size: 21px;
-}
-
-.concept-copy p {
-  margin: 0;
-  color: #5d5d5d;
-  line-height: 1.7;
-}
-
-.concept-hook {
-  margin-top: 13px;
-  padding: 11px 13px;
-  background: var(--surface-soft);
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
-  color: #444;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.split-box {
-  padding: 21px;
-  border-radius: 18px;
-}
-
-.creator-box {
-  background: #fff8fb;
-  border: 1px solid var(--border);
-}
-
-.sefie-box {
-  background: var(--success-bg);
-  border: 1px solid var(--success-border);
-}
-
-.split-box h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.split-box ul {
-  margin: 0;
-  padding-left: 21px;
-  color: #555;
-  line-height: 1.85;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 13px;
-  counter-reset: creator-step;
-}
-
-.step {
-  position: relative;
-  padding: 19px 18px 19px 66px;
-  background: var(--surface-soft);
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  counter-increment: creator-step;
-}
-
-.step::before {
-  content: counter(creator-step);
-  position: absolute;
-  left: 17px;
-  top: 18px;
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  background: var(--accent);
-  color: #ffffff;
-  border-radius: 50%;
-  font-weight: 800;
-}
-
-.step strong {
-  display: block;
-  margin-bottom: 6px;
-}
-
-.step p {
-  margin: 0;
-  color: #606060;
-  line-height: 1.6;
-}
-
-.feature-callout {
-  padding: 22px;
-  background: #fff5f8;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  text-align: center;
-}
-
-.feature-callout strong {
-  display: block;
-  margin-bottom: 9px;
-  font-size: 21px;
-}
-
-.feature-callout p {
-  max-width: 650px;
-  margin: 0 auto;
-  color: #5f5f5f;
-  line-height: 1.7;
-}
-
-.permission-list {
-  margin: 0;
-  padding-left: 22px;
-  line-height: 1.9;
-  color: #555;
-}
-
-.disclosure {
-  margin-top: 18px;
-  padding: 16px;
-  background: #fafafa;
-  border: 1px solid #e8e8e8;
-  border-radius: 14px;
-  color: #555;
-  line-height: 1.65;
-}
-
-.founder {
-  text-align: center;
-}
-
-.founder p {
-  max-width: 650px;
-  margin: 0 auto;
-  color: #5f5f5f;
-  line-height: 1.7;
-}
-
-.final-cta {
-  text-align: center;
-  background:
-    linear-gradient(
-      140deg,
-      rgba(255, 111, 97, 0.13),
-      rgba(255, 245, 249, 0.9)
-    ),
-    #ffffff;
-}
-
-.final-cta h2 {
-  margin-bottom: 10px;
-}
-
-.final-cta p {
-  max-width: 620px;
-  margin: 0 auto;
-  color: #5f5f5f;
-  line-height: 1.7;
-}
-
-.footer {
-  margin-top: 36px;
-  padding: 10px;
-  color: var(--muted-light);
-  text-align: center;
-  font-size: 13px;
-}
-
-.footer a {
-  color: #777;
-}
-
-@media (min-width: 720px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .concept-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .split {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .steps {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 560px) {
-  .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .hero,
-  .section {
-    padding-left: 17px;
-    padding-right: 17px;
-  }
-
-  .cta-secondary {
-    display: block;
-    width: fit-content;
-    margin: 10px auto 0;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="p:domain_verify"
+    content="9765d946033c3beb08fa5d1d0f603ccc"
+  >
+
+  <title>Sefie Creator Kit | Free Custom Comparison Reel</title>
+
+  <meta
+    name="description"
+    content="Sefie turns two approved beauty or selfie photos into a free custom A/B Reel with photo analysis, editing, cover, and caption prepared for selected creators."
+  >
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/icon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <style>
+    :root {
+      --accent: #ff6f61;
+      --accent-dark: #e95a50;
+      --background: #fff7fb;
+      --surface: #ffffff;
+      --surface-soft: #fff3f7;
+      --border: #ffe0e8;
+      --text: #222222;
+      --muted: #666666;
+      --muted-light: #888888;
+      --success-bg: #f2fbf6;
+      --success-border: #cfeedd;
+      --shadow: 0 12px 34px rgba(255, 111, 97, 0.11);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 58px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 224, 232, 0.8);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: 850;
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.025em;
+      white-space: nowrap;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-link {
+      color: #555555;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .header-link:hover {
+      color: var(--accent-dark);
+    }
+
+    .container {
+      width: min(100%, 900px);
+      margin: 0 auto;
+      padding: 88px 18px 48px;
+    }
+
+    .hero {
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(255, 111, 97, 0.13),
+          transparent 42%
+        ),
+        var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 40px 22px 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-weight: 850;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 12px auto;
+      font-size: clamp(36px, 8vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+    }
+
+    .sub {
+      max-width: 700px;
+      margin: 17px auto 0;
+      color: #555555;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .hero-line {
+      max-width: 650px;
+      margin: 18px auto 0;
+      font-size: 17px;
+      font-weight: 750;
+      line-height: 1.55;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 15px 25px;
+      background: var(--accent);
+      color: #ffffff;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(255, 111, 97, 0.22);
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      background: var(--accent-dark);
+    }
+
+    .cta-secondary {
+      background: #ffffff;
+      color: var(--accent-dark);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+
+    .note {
+      max-width: 650px;
+      margin: 13px auto 0;
+      color: var(--muted-light);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 23px;
+    }
+
+    .trust-item {
+      padding: 8px 12px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: #555555;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 31px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      text-align: center;
+      font-size: clamp(25px, 5vw, 34px);
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin: 0 auto 22px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .sample-title {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .sample-video-wrap {
+      width: min(100%, 340px);
+      margin: 20px auto 0;
+      overflow: hidden;
+      background: #000000;
+      border: 1px solid #222222;
+      border-radius: 22px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+    }
+
+    .sample-video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #000000;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      padding: 19px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #5f5f5f;
+      line-height: 1.65;
+    }
+
+    .card-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 9px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .split-box {
+      padding: 21px;
+      border-radius: 18px;
+    }
+
+    .creator-box {
+      background: #fff8fb;
+      border: 1px solid var(--border);
+    }
+
+    .sefie-box {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+    }
+
+    .split-box h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .split-box ul {
+      margin: 0;
+      padding-left: 21px;
+      color: #555555;
+      line-height: 1.85;
+    }
+
+    .feature-callout {
+      padding: 23px;
+      background: #fff5f8;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .feature-callout strong {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 22px;
+    }
+
+    .feature-callout p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #5f5f5f;
+      line-height: 1.7;
+    }
+
+    .score-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 18px 0 0;
+    }
+
+    .score-tag {
+      padding: 7px 11px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: #555555;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 13px;
+      counter-reset: creator-step;
+    }
+
+    .step {
+      position: relative;
+      padding: 19px 18px 19px 66px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      counter-increment: creator-step;
+    }
+
+    .step::before {
+      content: counter(creator-step);
+      position: absolute;
+      left: 17px;
+      top: 18px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 50%;
+      font-weight: 800;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      margin: 0;
+      color: #606060;
+      line-height: 1.6;
+    }
+
+    .permission-list {
+      margin: 0;
+      padding-left: 22px;
+      color: #555555;
+      line-height: 1.9;
+    }
+
+    .disclosure {
+      margin-top: 18px;
+      padding: 17px;
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 14px;
+      color: #555555;
+      line-height: 1.68;
+    }
+
+    .official {
+      text-align: center;
+    }
+
+    .official p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #5f5f5f;
+      line-height: 1.7;
+    }
+
+    .official-links {
+      margin-top: 15px !important;
+    }
+
+    .official-links a {
+      color: var(--accent-dark);
+      font-weight: 650;
+    }
+
+    .final-cta {
+      text-align: center;
+      background:
+        linear-gradient(
+          140deg,
+          rgba(255, 111, 97, 0.13),
+          rgba(255, 245, 249, 0.9)
+        ),
+        #ffffff;
+    }
+
+    .final-cta h2 {
+      margin-bottom: 10px;
+    }
+
+    .final-cta p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: #5f5f5f;
+      line-height: 1.7;
+    }
+
+    .footer {
+      margin-top: 36px;
+      padding: 10px;
+      color: var(--muted-light);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: #777777;
+    }
+
+    @media (min-width: 720px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .split {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .header-nav .header-link:first-child {
+        display: none;
+      }
+
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .hero,
+      .section {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+
+      .cta-row {
+        flex-direction: column;
+      }
+
+      .cta {
+        width: min(100%, 320px);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header">
-  <a class="logo" href="/">SEFIE</a>
-  <a class="header-link" href="mailto:sefie.app@gmail.com">Contact</a>
-</header>
-
-<main class="container">
-
-  <section class="hero">
-    <div class="kicker">Sefie Creator Kit</div>
-
-    <h1>
-      Your photos.<br>
-      <span class="hero-highlight">One finished Reel.</span>
-    </h1>
-
-    <p class="sub">
-      Choose two of your existing beauty or selfie photos.
-      Sefie prepares the concept, analysis, hook, editing, cover,
-      and caption for a custom short-form video built around you.
-    </p>
-
-    <p class="hero-line">
-      You choose the photos. We turn them into a post-ready story.
-    </p>
-
-    <a
-      class="cta"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSeP9E89X3tY55AchdexRaB8R8YzBefdxs39w30PapVyH11Gsw/viewform?hl=en"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Request a Free Custom Reel
+  <header class="header">
+    <a class="logo" href="/">
+      SEFIE / PHOTO INDEX
     </a>
 
-    <a
-      class="cta cta-secondary"
-      href="mailto:sefie.app@gmail.com?subject=Sefie%20Creator%20Kit"
-    >
-      Ask a Question
-    </a>
+    <nav class="header-nav" aria-label="Creator Kit navigation">
+      <a class="header-link" href="#sample">
+        Finished example
+      </a>
 
-    <div class="note">
-      No posting obligation. You review the finished video before deciding
-      whether to use it. Nothing is published or reused without your permission.
-    </div>
+      <a class="header-link" href="mailto:sefie.app@gmail.com">
+        Contact
+      </a>
+    </nav>
+  </header>
 
-    <div class="trust-row">
-      <span class="trust-item">Two existing photos</span>
-      <span class="trust-item">Finished Reel</span>
-      <span class="trust-item">Cover included</span>
-      <span class="trust-item">Caption included</span>
-      <span class="trust-item">Free for selected creators</span>
-    </div>
-  </section>
+  <main class="container">
 
-  <section class="section">
-    <h2>What we create for you</h2>
-
-    <p class="section-intro">
-      This is not a list of video ideas for you to produce yourself.
-      We prepare one complete content package using two photos you approve.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-        <span class="card-label">Main Deliverable</span>
-        <strong>Custom 8–12 second Reel</strong>
-        <p>
-          A ready-to-post vertical video for Instagram Reels, TikTok,
-          or YouTube Shorts.
-        </p>
+    <section class="hero">
+      <div class="kicker">
+        Sefie Creator Collab
       </div>
 
-      <div class="card">
-        <span class="card-label">Included</span>
-        <strong>Custom cover image</strong>
-        <p>
-          A clear cover built around the final concept and strongest hook.
-        </p>
+      <h1>
+        Your photos.<br>
+        <span class="hero-highlight">
+          One custom comparison Reel.
+        </span>
+      </h1>
+
+      <p class="sub">
+        Sefie turns two of your existing beauty or selfie photos into
+        a polished A/B Reel using results from the Sefie photo comparison app.
+      </p>
+
+      <p class="hero-line">
+        We prepare the concept, photo analysis, editing, cover, and caption.
+      </p>
+
+      <div class="cta-row">
+        <a class="cta" href="#sample">
+          Watch the Finished Example
+        </a>
+
+        <a
+          class="cta cta-secondary"
+          href="https://www.instagram.com/sefie.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open @sefie.app
+        </a>
       </div>
 
-      <div class="card">
-        <span class="card-label">Included</span>
-        <strong>Title and caption options</strong>
-        <p>
-          Final copy is adapted to the Sefie result and your personal reaction.
-        </p>
+      <div class="note">
+        Free for selected creators. No posting obligation.
+        You review the finished Reel before deciding whether to use it.
+        Nothing is published or reused without your separate permission.
       </div>
 
-    </div>
-  </section>
+      <div class="trust-row">
+        <span class="trust-item">
+          Two existing photos
+        </span>
 
-  <section class="section">
-    <h2>Featured creator concepts</h2>
+        <span class="trust-item">
+          Finished custom Reel
+        </span>
 
-    <p class="section-intro">
-      The final concept is selected to fit your existing content and photos.
-      These are current examples of the type of Reel we can prepare.
-    </p>
+        <span class="trust-item">
+          Cover and caption included
+        </span>
 
-    <div class="concept-grid">
+        <span class="trust-item">
+          Review before posting
+        </span>
 
-      <article class="concept-card">
+        <span class="trust-item">
+          No posting obligation
+        </span>
+      </div>
+    </section>
 
-        <!--
-          Replace this placeholder later with an AI-model image or video.
+    <section class="section" id="sample">
+      <h2>
+        See a finished example
+      </h2>
 
-          Suggested future file:
-          /creator-examples/kbeauty-vs-sophisticated-glam.webp
-        -->
+      <p class="section-intro">
+        <strong class="sample-title">
+          Clean Girl vs. Soft Glam
+        </strong>
 
-        <div class="example-visual">
-          <div class="example-inner">
+        The viewer chooses a favorite first, sees the
+        Face Presentation results from Sefie, and then gets the final vote.
+      </p>
 
-            <div class="example-ab">
-              <div class="example-photo">K-Beauty Photo</div>
-              <div class="example-photo">Glam Photo</div>
-            </div>
+      <div class="sample-video-wrap">
+        <video
+          class="sample-video"
+          controls
+          playsinline
+          preload="metadata"
+        >
+          <source
+            src="/creator-kit/sefie-clean-girl-soft-glam.mp4"
+            type="video/mp4"
+          >
 
-            <p class="example-title">
-              K-Beauty vs.<br>
-              Sophisticated Glam
-            </p>
+          Your browser does not support video playback.
+        </video>
+      </div>
 
-            <p class="example-note">AI model example coming soon</p>
+      <p class="note">
+        This sample uses AI-generated model images.
+        Creator Reels are made only with the exact photos approved
+        by each creator.
+      </p>
+    </section>
 
-          </div>
-        </div>
+    <section class="section">
+      <h2>
+        What we create for you
+      </h2>
 
-        <div class="concept-copy">
-          <h3>K-Beauty vs. Sophisticated Glam</h3>
+      <p class="section-intro">
+        This is not a list of ideas for you to film yourself.
+        Sefie prepares one complete, ready-to-post content package
+        using two photos you approve.
+      </p>
+
+      <div class="grid">
+
+        <div class="card">
+          <span class="card-label">
+            Main Deliverable
+          </span>
+
+          <strong>
+            Custom 12–16 second Reel
+          </strong>
 
           <p>
-            Two clearly different makeup moods become one visual showdown.
-            The final title changes after the result and your reaction are known.
+            A polished vertical A/B comparison video prepared for
+            Instagram Reels, TikTok, or YouTube Shorts.
           </p>
-
-          <div class="concept-hook">
-            “Which look actually photographs better?”
-          </div>
         </div>
 
-      </article>
+        <div class="card">
+          <span class="card-label">
+            Included
+          </span>
 
-      <article class="concept-card">
-
-        <!--
-          Suggested future file:
-          /creator-examples/pretty-vs-approachable.webp
-        -->
-
-        <div class="example-visual">
-          <div class="example-inner">
-
-            <div class="example-ab">
-              <div class="example-photo">Photo A</div>
-              <div class="example-photo">Photo B</div>
-            </div>
-
-            <p class="example-title">
-              Pretty vs.<br>
-              Approachable
-            </p>
-
-            <p class="example-note">AI model example coming soon</p>
-
-          </div>
-        </div>
-
-        <div class="concept-copy">
-          <h3>Pretty vs. Approachable</h3>
+          <strong>
+            Custom cover image
+          </strong>
 
           <p>
-            A discussion-ready concept about the different first impressions
-            created by two photos—not a judgment of the person.
+            A clear cover designed around the comparison
+            and strongest opening hook.
           </p>
-
-          <div class="concept-hook">
-            “The prettier photo may not be the one I would post.”
-          </div>
         </div>
 
-      </article>
+        <div class="card">
+          <span class="card-label">
+            Included
+          </span>
 
-      <article class="concept-card">
-
-        <!--
-          Suggested future file:
-          /creator-examples/10-minute-vs-45-minute-glam.webp
-        -->
-
-        <div class="example-visual">
-          <div class="example-inner">
-
-            <div class="example-ab">
-              <div class="example-photo">10-Minute Look</div>
-              <div class="example-photo">45-Minute Look</div>
-            </div>
-
-            <p class="example-title">
-              10-Minute Makeup vs.<br>
-              45-Minute Glam
-            </p>
-
-            <p class="example-note">AI model example coming soon</p>
-
-          </div>
-        </div>
-
-        <div class="concept-copy">
-          <h3>10-Minute Makeup vs. 45-Minute Glam</h3>
+          <strong>
+            Caption and disclosure copy
+          </strong>
 
           <p>
-            Time and effort create a natural story. An unexpected result can
-            turn two existing looks into a strong reaction video.
+            We provide a ready-to-use caption option, a short explanation
+            of Sefie, and suggested disclosure wording.
           </p>
-
-          <div class="concept-hook">
-            “I spent 45 minutes on the look that lost.”
-          </div>
         </div>
 
-      </article>
+        <div class="card">
+          <span class="card-label">
+            Light Brand Credit
+          </span>
 
-    </div>
-  </section>
+          <strong>
+            Sefie / Photo Index credit
+          </strong>
 
-  <section class="section">
-    <h2>Your part is intentionally small</h2>
+          <p>
+            A small Sefie credit remains in the Reel so viewers understand
+            where the photo-analysis results came from.
+          </p>
+        </div>
 
-    <div class="split">
+      </div>
+    </section>
 
-      <div class="split-box creator-box">
-        <h3>You provide</h3>
+    <section class="section">
+      <h2>
+        Your part is intentionally small
+      </h2>
 
-        <ul>
-          <li>Two existing photos you approve</li>
-          <li>Your preferred concept or general direction</li>
-          <li>A short reaction after seeing the result</li>
-          <li>Final approval before delivery</li>
-        </ul>
+      <div class="split">
+
+        <div class="split-box creator-box">
+          <h3>
+            You provide
+          </h3>
+
+          <ul>
+            <li>
+              Approval to use two specific existing photos
+            </li>
+
+            <li>
+              Any preference you have about the comparison
+            </li>
+
+            <li>
+              Your review of the finished private draft
+            </li>
+          </ul>
+        </div>
+
+        <div class="split-box sefie-box">
+          <h3>
+            Sefie handles
+          </h3>
+
+          <ul>
+            <li>
+              Photo comparison and analysis
+            </li>
+
+            <li>
+              Concept and opening hook
+            </li>
+
+            <li>
+              Video editing
+            </li>
+
+            <li>
+              Cover design
+            </li>
+
+            <li>
+              Caption and disclosure copy
+            </li>
+
+            <li>
+              Delivery of the finished files
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>
+        Where the scores come from
+      </h2>
+
+      <div class="feature-callout">
+        <strong>
+          Sefie / Photo Index
+        </strong>
+
+        <p>
+          Sefie is a photo comparison app for iPhone and Android.
+          It compares two photos through results such as
+          Face Presentation, Style Balance, Photo Tone,
+          and the overall Sefie Index.
+        </p>
+
+        <div class="score-tags">
+          <span class="score-tag">
+            Face Presentation
+          </span>
+
+          <span class="score-tag">
+            Style Balance
+          </span>
+
+          <span class="score-tag">
+            Photo Tone
+          </span>
+
+          <span class="score-tag">
+            Sefie Index
+          </span>
+        </div>
       </div>
 
-      <div class="split-box sefie-box">
-        <h3>Sefie handles</h3>
+      <p
+        class="section-intro"
+        style="margin-top:18px; margin-bottom:0;"
+      >
+        Each Reel highlights only the result that best fits the creator
+        and comparison. The score creates the story, but the creator
+        and audience still make the final choice.
+      </p>
+    </section>
 
-        <ul>
-          <li>Photo analysis</li>
-          <li>Concept and hook</li>
-          <li>Result reveal</li>
-          <li>Video editing</li>
-          <li>Cover design</li>
-          <li>Title and caption options</li>
-        </ul>
+    <section class="section">
+      <h2>
+        How it works
+      </h2>
+
+      <div class="steps">
+
+        <div class="step">
+          <strong>
+            We send two exact photo suggestions
+          </strong>
+
+          <p>
+            Sefie identifies two existing posts that could work well together
+            and sends the exact links and proposed comparison.
+          </p>
+        </div>
+
+        <div class="step">
+          <strong>
+            You approve the photos
+          </strong>
+
+          <p>
+            Reply “Approved” only if you are comfortable with Sefie using
+            those two photos to prepare the private draft.
+          </p>
+        </div>
+
+        <div class="step">
+          <strong>
+            Sefie creates the finished Reel
+          </strong>
+
+          <p>
+            We prepare the analysis, comparison structure, editing,
+            cover, and caption copy.
+          </p>
+        </div>
+
+        <div class="step">
+          <strong>
+            You review and decide
+          </strong>
+
+          <p>
+            You receive the finished material privately.
+            You decide whether to publish it.
+            There is no posting obligation.
+          </p>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="section">
+      <h2>
+        Your photos and permission
+      </h2>
 
-  <section class="section">
-    <h2>How Sefie adds the hook</h2>
+      <ul class="permission-list">
+        <li>
+          You approve the exact two photos used in the project.
+        </li>
 
-    <div class="feature-callout">
-      <strong>Face · Style · Vibe · Overall Sefie Score</strong>
+        <li>
+          The photos are used only to prepare the agreed
+          private creator draft.
+        </li>
+
+        <li>
+          There is no obligation to publish the finished content.
+        </li>
+
+        <li>
+          You may decide not to use the final Reel.
+        </li>
+
+        <li>
+          Nothing is posted by Sefie without separate permission.
+        </li>
+
+        <li>
+          Nothing is reused in advertising, portfolio examples,
+          or other creator materials without separate permission.
+        </li>
+
+        <li>
+          Selected photos are not retained on Sefie’s servers
+          after analysis.
+        </li>
+
+        <li>
+          The finished Reel includes a small
+          “Sefie / Photo Index” credit identifying the source
+          of the analysis.
+        </li>
+      </ul>
+
+      <div class="disclosure">
+        <strong>
+          If you decide to post
+        </strong>
+        <br>
+
+        We provide one short caption line identifying Sefie as the
+        photo comparison app used in the Reel, together with suggested
+        disclosure wording for free creator content.
+
+        Please use any additional disclosure required by your platform
+        or location.
+      </div>
+    </section>
+
+    <section class="section official">
+      <h2>
+        An official creator offer from Sefie
+      </h2>
 
       <p>
-        Sefie reviews two photo options through Face, Style, and Vibe,
-        then brings the result together in an overall Sefie score.
-        Results appear in seconds with no account registration required.
+        Sefie / Photo Index is an independent photo comparison app
+        available for iPhone and Android.
       </p>
-    </div>
 
-    <p class="section-intro" style="margin-top:18px; margin-bottom:0;">
-      The score is not treated as the final word.
-      Your agreement, disagreement, surprise, or personal preference
-      becomes part of the finished content.
-    </p>
-  </section>
+      <p class="official-links">
+        Instagram:
+        <a
+          href="https://www.instagram.com/sefie.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @sefie.app
+        </a>
+        <br>
 
-  <section class="section">
-    <h2>How it works</h2>
+        Official website:
+        <a href="https://sefie.app/">
+          sefie.app
+        </a>
+        <br>
 
-    <div class="steps">
+        Contact:
+        <a href="mailto:sefie.app@gmail.com">
+          sefie.app@gmail.com
+        </a>
+      </p>
+    </section>
 
-      <div class="step">
-        <strong>Apply or reply to our invitation</strong>
-        <p>
-          Tell us about your platform, audience, and usual beauty
-          or lifestyle content.
-        </p>
+    <section class="section final-cta">
+      <h2>
+        Interested in your own custom Reel?
+      </h2>
+
+      <p>
+        Reply to the Instagram message from
+        <strong>@sefie.app</strong>.
+        We will send the exact two photo suggestions and proposed comparison
+        before using anything.
+      </p>
+
+      <div class="cta-row">
+        <a
+          class="cta"
+          href="https://www.instagram.com/sefie.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Sefie on Instagram
+        </a>
+
+        <a
+          class="cta cta-secondary"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeP9E89X3tY55AchdexRaB8R8YzBefdxs39w30PapVyH11Gsw/viewform?hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Request Consideration
+        </a>
       </div>
 
-      <div class="step">
-        <strong>Approve two existing photos</strong>
-        <p>
-          You choose the exact photos we may use.
-          New photography is normally not required.
-        </p>
+      <div class="note">
+        The form is for creators who found this page without receiving
+        a direct invitation. Availability is limited because each Reel
+        is prepared individually.
       </div>
+    </section>
 
-      <div class="step">
-        <strong>See the result and share one reaction</strong>
-        <p>
-          Tell us which look you personally prefer or what surprised you.
-          A short written reply is enough.
-        </p>
-      </div>
+    <footer class="footer">
+      <p>
+        <a href="/">
+          Sefie Home
+        </a>
+        |
+        <a href="/privacy.html">
+          Privacy
+        </a>
+        |
+        <a href="/terms.html">
+          Terms
+        </a>
+        |
+        <a href="/support.html">
+          Support
+        </a>
+      </p>
 
-      <div class="step">
-        <strong>Receive the finished package</strong>
-        <p>
-          We deliver the Reel, cover, and caption.
-          You decide whether it fits your content.
-        </p>
-      </div>
+      <p>
+        © 2026 Sefie
+      </p>
+    </footer>
 
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Your photos and permission</h2>
-
-    <ul class="permission-list">
-      <li>You choose the exact photos used in the project.</li>
-      <li>The photos are used only to prepare the agreed creator material.</li>
-      <li>There is no obligation to publish the finished content.</li>
-      <li>You may decide not to use the final video.</li>
-      <li>Nothing is posted by Sefie without your separate approval.</li>
-      <li>Nothing is reused in advertising or other creator materials without permission.</li>
-      <li>Selected photos are not retained on Sefie’s servers after analysis.</li>
-    </ul>
-
-    <div class="disclosure">
-      <strong>Disclosure when posting</strong><br>
-      When you choose to publish free custom content provided by Sefie,
-      please include a clear disclosure such as
-      “Free custom Reel provided by Sefie” or
-      “Gifted creator content from Sefie.”
-    </div>
-  </section>
-
-  <section class="section founder">
-    <h2>An official offer from Sefie</h2>
-
-    <p>
-      This Creator Kit is offered directly by
-      <strong>[FOUNDER FULL NAME]</strong>,
-      Founder and Independent Developer of Sefie, based in Japan.
-      Sefie is available for iPhone and Android.
-    </p>
-
-    <p style="margin-top:14px;">
-      Official website:
-      <a href="https://sefie.app/">https://sefie.app/</a><br>
-
-      Contact:
-      <a href="mailto:sefie.app@gmail.com">sefie.app@gmail.com</a>
-    </p>
-  </section>
-
-  <section class="section final-cta">
-    <h2>Two photos can become your next Reel.</h2>
-
-    <p>
-      Send two existing beauty or selfie photos.
-      We will prepare a concept, analyze the images,
-      and turn the result into a finished short-form video.
-    </p>
-
-    <a
-      class="cta"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSeP9E89X3tY55AchdexRaB8R8YzBefdxs39w30PapVyH11Gsw/viewform?hl=en"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Request a Free Custom Reel
-    </a>
-
-    <div class="note">
-      Applications are reviewed manually.
-      Availability is limited because each Reel is prepared individually.
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>
-      <a href="/">Sefie Home</a> |
-      <a href="/privacy.html">Privacy</a> |
-      <a href="/terms.html">Terms</a> |
-      <a href="/support.html">Support</a>
-    </p>
-
-    <p>© 2026 Sefie</p>
-  </footer>
-
-</main>
+  </main>
 
 </body>
 </html>
